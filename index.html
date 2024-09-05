@@ -29,29 +29,21 @@
             width: 120px;
         }
 
-        .nav-left,
-        .nav-right {
+        /* Navbar styling */
+        nav {
             display: flex;
+            justify-content: space-between;
+            width: 100%;
             align-items: center;
         }
 
-        .nav-left a {
-            color: #fff;
-            margin-right: 20px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-left a:hover {
-            color: #90e0ef;
-        }
-
+        /* Search Box */
         .search-box {
             display: flex;
             gap: 8px;
             align-items: center;
-            margin-left: 20px;
+            margin-right: auto;
+            margin-left: 40px;
         }
 
         .search-box input {
@@ -85,21 +77,25 @@
         /* User Links */
         .user-links {
             display: flex;
+            gap: 20px;
             align-items: center;
         }
 
         .user-links a {
             color: #fff;
-            margin-left: 20px;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 10px 20px;
+            border-radius: 30px;
         }
 
         .user-links a:hover {
-            color: #90e0ef;
+            background-color: #90e0ef;
+            color: #023e8a;
         }
 
+        /* Mini Profile Styling */
         .profile {
             display: flex;
             align-items: center;
@@ -123,7 +119,6 @@
         .dropdown {
             position: relative;
             display: inline-block;
-            margin-left: 20px;
         }
 
         .dropbtn {
@@ -181,46 +176,47 @@
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .left-sidebar:hover {
+            background-color: #c3e1ff;
+            transform: scale(1.02);
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
         }
 
         .accordion-item summary {
-            background-color: #0077b6;
-            color: white;
-            padding: 12px;
-            border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .accordion-item summary:hover {
-            background-color: #023e8a;
+            font-size: 1.2rem;
+            color: #0077b6;
         }
 
         .accordion-item-content {
-            background-color: #90e0ef;
-            padding: 12px;
-            border-radius: 5px;
             margin-top: 10px;
-        }
-
-        .accordion-item-content ul {
-            list-style-type: none;
             padding-left: 15px;
         }
 
-        .accordion-item-content li {
+        .accordion-item-content ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        .accordion-item-content ul li {
             margin-bottom: 8px;
         }
 
-        .accordion-item-content a {
-            color: #0077b6;
+        .accordion-item-content ul li a {
+            color: #023e8a;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
-        .accordion-item-content a:hover {
-            color: #023e8a;
+        .accordion-item-content ul li a:hover {
+            color: #0077b6;
         }
 
         /* Right Content Section */
@@ -283,6 +279,12 @@
             .search-box button {
                 width: 100%;
             }
+
+            .user-links {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -291,19 +293,16 @@
     <!-- Header Section -->
     <header>
         <nav>
-            <div class="nav-left">
-                <a href="create-account.html">Create Account</a>
-                <a href="login.html">Login</a>
-            </div>
             <div class="logo">
                 <img src="logo.png" alt="Water Scarcity Wiki Logo">
             </div>
-            <div class="nav-right">
-                <div class="search-box">
-                    <input type="text" placeholder="🔍 Search here" aria-label="Search">
-                    <button type="button">Search</button>
-                </div>
-                <!-- Wiki Software Dropdown Menu -->
+            <div class="search-box">
+                <input type="text" placeholder="🔍 Search here" aria-label="Search">
+                <button type="button">Search</button>
+            </div>
+            <div class="user-links">
+                <a href="create-account.html">Create Account</a>
+                <a href="login.html">Login</a>
                 <div class="dropdown">
                     <button class="dropbtn">Wiki Menu</button>
                     <div class="dropdown-content">
@@ -315,10 +314,9 @@
                         <a href="notifications.html">Notifications</a>
                     </div>
                 </div>
-                <!-- Mini Profile Logo -->
                 <div class="profile">
-                    <img src="profile-icon.png" alt="Profile Picture">
-                    <span>Username</span>
+                    <img src="image.png" alt="Profile Picture">
+                    <span><a href="mini-profile.html">Prince Yadav</a></span>
                 </div>
             </div>
         </nav>
@@ -335,21 +333,31 @@
                     <div class="accordion-item-content">
                         <ul>
                             <li><a href="#">Understanding Water Scarcity</a></li>
-                            <li><a href="#">Water-Efficient Techniques</a></li>
-                            <li><a href="#">Sustainable Water Management</a></li>
-                            <li><a href="#">Case Studies and Success Stories</a></li>
-                            <li><a href="#">Get Involved</a></li>
+                            <li><a href="#">Water Conservation Techniques</a></li>
                         </ul>
                     </div>
                 </details>
-                <!-- Accordion Section for Details -->
+
+                <!-- Accordion Section for Case Studies -->
                 <details class="accordion-item">
-                    <summary>Details</summary>
+                    <summary>Case Studies</summary>
                     <div class="accordion-item-content">
                         <ul>
-                            <li><a href="#"></a></li>
-                            <li><a href="#"></a></li>
-                            <li><a href="#"></a></li>
+                            <li><a href="#">India</a></li>
+                            <li><a href="#">China</a></li>
+                            <li><a href="#">Middle East</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- Accordion Section for Scientific Research -->
+                <details class="accordion-item">
+                    <summary>Scientific Research</summary>
+                    <div class="accordion-item-content">
+                        <ul>
+                            <li><a href="#">Groundwater Depletion Studies</a></li>
+                            <li><a href="#">Water Cycle Impacts</a></li>
+                            <li><a href="#">Climate Change Effects</a></li>
                         </ul>
                     </div>
                 </details>
@@ -357,30 +365,17 @@
         </aside>
 
         <!-- Right Content Section -->
-        <div class="right-content">
-            <h1>Water-Efficient Techniques for Minimizing Water Scarcity</h1>
-            <p>The Water Scarcity Wiki is a free resource focused on sustainable water management techniques and methods
-                to reduce water scarcity worldwide.</p>
-
-            <div class="article-content">
-                <h2>The Art of Building a Sustainable Water Management System</h2>
-                <p>Discover how regions around the world have effectively implemented water-saving strategies to combat
-                    scarcity...</p>
-
-                <h2>Understanding the Concept of Balancing Ecosystem</h2>
-                <p>Explore how balancing ecosystems and sustainability can promote effective water management and overall
-                    well-being...</p>
-
-                <h2>Water Conservation in Ipswich River Watershed</h2>
-                <p>The Ipswich River Watershed, located in Northeastern Massachusetts, covers a 155-square-mile area...</p>
-                <p><a href="water-case-study.pdf">Click here for more information</a></p>
-            </div>
-        </div>
+        <section class="right-content">
+            <h1>Welcome to Water Scarcity Wiki</h1>
+            <p>Explore detailed resources and techniques on how to manage water scarcity, one of the most pressing challenges of our time.</p>
+            <h2>Latest Articles</h2>
+            <p>Browse the most recent articles covering innovative water conservation methods and sustainable practices.</p>
+        </section>
     </div>
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 Water Scarcity Wiki. All rights reserved.</p>
+        <p>Water Scarcity Wiki &copy; 2024. All Rights Reserved.</p>
     </footer>
 </body>
 
