@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Scarcity Wiki</title>
+    <style>
+        /* Base styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7fafc;
+            color: #2d2d2d;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #0077b6;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            width: 120px;
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-left a {
+            color: #fff;
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-left a:hover {
+            color: #90e0ef;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .search-box input {
+            padding: 10px;
+            border-radius: 30px;
+            border: 1px solid #ddd;
+            outline: none;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: #90e0ef;
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            background-color: #023e8a;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background-color: #0077b6;
+            transform: scale(1.05);
+        }
+
+        /* User Links */
+        .user-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-links a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .user-links a:hover {
+            color: #90e0ef;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            margin-right: 10px;
+        }
+
+        .profile span {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Wiki Menu Dropdown Styling */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .dropbtn {
+            background-color: #0077b6;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: #0077b6;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #90e0ef;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #023e8a;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            display: flex;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        /* Left Sidebar Styling */
+        .left-sidebar {
+            width: 300px;
+            background-color: #e1f5fe;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .accordion-item summary {
+            background-color: #0077b6;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .accordion-item summary:hover {
+            background-color: #023e8a;
+        }
+
+        .accordion-item-content {
+            background-color: #90e0ef;
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .accordion-item-content ul {
+            list-style-type: none;
+            padding-left: 15px;
+        }
+
+        .accordion-item-content li {
+            margin-bottom: 8px;
+        }
+
+        .accordion-item-content a {
+            color: #0077b6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .accordion-item-content a:hover {
+            color: #023e8a;
+        }
+
+        /* Right Content Section */
+        .right-content {
+            flex-grow: 1;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .right-content h1 {
+            color: #0077b6;
+            font-size: 2.5rem;
+        }
+
+        .right-content p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .right-content h2 {
+            color: #023e8a;
+            font-size: 1.8rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #023e8a;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .left-sidebar {
+                width: 100%;
+            }
+
+            .right-content {
+                margin-top: 20px;
+            }
+
+            .search-box input,
+            .search-box button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="nav-left" style="cursor: pointer;">
+                <button id="account">Create Account</button>
+                <button id="login00">Login</button>
+            </div>
+            <div class="logo">
+                <img src="logo.png" alt="Water Scarcity Wiki Logo">
+            </div>
+            <div class="nav-right">
+                <div class="search-box">
+                    <input type="text" placeholder="🔍 Search here" aria-label="Search">
+                    <button type="button">Search</button>
+                </div>
+                <!-- Wiki Software Dropdown Menu -->
+                <div class="dropdown">
+                    <button class="dropbtn">Wiki Menu</button>
+                    <div class="dropdown-content">
+                        <a href="explore.html">Explore Techniques</a>
+                        <a href="contribute.html">Contribute Knowledge</a>
+                        <a href="discussions.html">Join Discussions</a>
+                        <a href="mini-profile.html">User Profile</a>
+                        <a href="bookmarks.html">Saved Resources</a>
+                        <a href="notifications.html">Notifications</a>
+                    </div>
+                </div>
+                <!-- Mini Profile Logo -->
+                <div class="profile">
+                    <img src="profile-icon.png" alt="Profile Picture">
+                    <span>Username</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Left Sidebar Section -->
+        <aside class="left-sidebar">
+            <div class="accordion">
+                <!-- Accordion Section for Introduction -->
+                <details class="accordion-item">
+                    <summary>Introduction</summary>
+                    <div class="accordion-item-content">
+                        <ul>
+                            <li><a href="#">Understanding Water Scarcity</a></li>
+                            <li><a href="#">Water-Efficient Techniques</a></li>
+                            <li><a href="#">Sustainable Water Management</a></li>
+                            <li><a href="#">Case Studies and Success Stories</a></li>
+                            <li><a href="#">Get Involved</a></li>
+                        </ul>
+                    </div>
+                </details>
+                <!-- Accordion Section for Details -->
+                <details class="accordion-item">
+                    <summary>Details</summary>
+                    <div class="accordion-item-content">
+                        <ul>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </aside>
+
+        <!-- Right Content Section -->
+        <div class="right-content">
+            <h1>Water-Efficient Techniques for Minimizing Water Scarcity</h1>
+            <p>The Water Scarcity Wiki is a free resource focused on sustainable water management techniques and methods
+                to reduce water scarcity worldwide.</p>
+
+            <div class="article-content">
+                <h2>The Art of Building a Sustainable Water Management System</h2>
+                <p>Discover how regions around the world have effectively implemented water-saving strategies to combat
+                    scarcity...</p>
+
+                <h2>Understanding the Concept of Balancing Ecosystem</h2>
+                <p>Explore how balancing ecosystems and sustainability can promote effective water management and overall
+                    well-being...</p>
+
+                <h2>Water Conservation in Ipswich River Watershed</h2>
+                <p>The Ipswich River Watershed, located in Northeastern Massachusetts, covers a 155-square-mile area...</p>
+                <p><a href="water-case-study.pdf">Click here for more information</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Water Scarcity Wiki. All rights reserved.</p>
+    </footer>
+
+<script>
+    document.getElementById('account').addEventListener('click',(event) => {
+        event.preventDefault();
+    window.location.href = "/create-account";
+    })
+    document.getElementById('login00').addEventListener('click',(event) => {
+        event.preventDefault();
+    window.location.href = "/login90";
+    })
+</script>
+</body>
+
+</html>
