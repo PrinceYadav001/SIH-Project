@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Knowledge Sharing Platform</title>
     <link rel="stylesheet" href="sharing-platform.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Share Your Knowledge</h1>
@@ -18,6 +20,12 @@
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" required placeholder="Enter your thought"></textarea>
             </div>
+            <div>
+                <label for="myfile">Select a file:</label>
+                <input type="file" id="myfile" name="myfile">
+
+            </div>
+            <br>
             <button type="submit">Submit</button>
         </form>
         <div id="responseMessage"></div>
@@ -29,4 +37,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
