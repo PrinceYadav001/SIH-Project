@@ -1,3 +1,15 @@
+/* .rainwater-image{
+    height:297px;
+    width:496px;
+}
+.rainwater-img{
+    height:297px;
+    width:496px;
+
+} */
+/* intro1.css */
+
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -8,7 +20,7 @@ body {
 }
 
 header {
-    background:#0077b6;
+    background:#244855;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -39,9 +51,9 @@ section.content {
 }
 
 h2 {
-    color: #0077b6;
+    color: #0033ff;
     font-size: 1.8em;
-    border-bottom: 2px solid #0077b6;
+    border-bottom: 2px solid #007BFF;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
@@ -72,8 +84,8 @@ img {
 
 /* Footer Styles */
 footer {
-    background: #0077b6;
-    color: #0077b6;
+    background: #244855;
+    color: #47c85a;
     text-align: center;
     padding: 10px;
     position: fixed;
